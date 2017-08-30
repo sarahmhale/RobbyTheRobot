@@ -1,24 +1,20 @@
-"""
-Function name: startTimer
-Purpose: 
-Input:
-Output:
-Comments:
-"""
+import time
 
+class Timer:
+    startTime = 0
+    stopTime = 0
 
-"""
-Function name: stopTimer
-Purpose: 
-Input:
-Output:
-Comments:
-"""
+    def startTimer(self):
+        self.startTime = time.time()
 
-"""
-Function name: printTime
-Purpose: 
-Input:
-Output:
-Comments:
-"""
+    def stopTimer(self):
+        self.stopTime = time.time()
+
+    def printTimer(self):
+        if(self.stopTime == 0):
+            print ('Time passed ', time.time()-self.startTime, ' secondes')
+        else:
+            print ('Time passed ', self.stopTime-self.startTime, ' secondes')
+
+    def getTime(self):
+        return self.stopTime-self.startTime
