@@ -116,9 +116,9 @@ if __name__ == '__main__':
     try:
         print('Telling the robot to go streight ahead.')
         response = postSpeed(0,0.5) 
-        print 'Waiting for a while...'
+        print ('Waiting for a while...')
         time.sleep(3)
-        print 'Telling the robot to go in a circle.'
+        print ('Telling the robot to go in a circle.')
         response = postSpeed(0.9,0.1)        
     except UnexpectedResponse as ex:
         print('Unexpected response from server when sending speed commands:', ex)
@@ -136,15 +136,15 @@ if __name__ == '__main__':
 
     try:
         pose = getPose()
-        print 'Current position: ', pose['Pose']['Position']
+        print ('Current position: ', pose['Pose']['Position'])
         for t in range(30):    
-            print 'Current heading vector: X:{X:.3}, Y:{Y:.3}'.format(**getBearing())
+            print ('Current heading vector: X:{X:.3}, Y:{Y:.3}'.format(**getBearing()))
             laser = getLaser()
-            print 'Distance %.3f meters.'%(laser['Echoes'][135])
+            print ('Distance %.3f meters.'%(laser['Echoes'][135]))
             if (laser['Echoes'][135] < 0.3):
-                print 'Danger! Brace for impact! Hit the brakes!'
+                print ('Danger! Brace for impact! Hit the brakes!')
                 response = postSpeed(0,-0.1)
             time.sleep(1)
-    except UnexpectedResponse, ex:
-        print 'Unexpected response from server when reading position:', ex
+    except (UnexpectedResponse, ex):
+        print ('Unexpected response from server when reading position:', ex)
 
