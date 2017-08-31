@@ -1,5 +1,5 @@
 
-from collections import namedTuple
+from collections import namedtuple
 
 
 
