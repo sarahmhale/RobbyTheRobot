@@ -9,7 +9,13 @@ class Angle:
         v2 = [destinationCoordinate['x'] - currentCoordinate['x'],  destinationCoordinate['y'] -currentCoordinate['y']]
         ang1 = np.arctan2(*v1[::-1])
         ang2 = np.arctan2(*v2[::-1])
-        return np.rad2deg((ang1 - ang2) % (2 * np.pi))
+        
+        angle =np.rad2deg((ang1 - ang2) % (2 * np.pi))
+
+        if angle > 180:
+            return angle - 360
+        else:
+            return angle
 
 
 """
