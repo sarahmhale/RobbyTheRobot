@@ -20,23 +20,23 @@ class Distance:
 
 
 
-"""
-Function name: getCordinatesWithinMaxDistance
-Purpose:
-Input: path, rangeValue
-Output: a list of all cordinates within range sorted by furthest distance first.
-Comments:
-"""
-
-def getCordinatesWithinMaxDistance(robotCoordinate, goalCoordinate, maxDistanceFromPath):
-	coordinatesWithinMaxDistanceDic = {}
-	for (coordinate in path):
-		distance = getDistance(robotCoordinate, coordinate)
-		if(distance <= maxDistanceFromPath):
-			coordinatesWithinMaxDistanceDic[coordinate] = distance
-		else:
-			break
-	return coordinatesWithinMaxDistanceDic
+	"""
+	Function name: getCordinatesWithinMaxDistance
+	Purpose:
+	Input: path, rangeValue
+	Output: a list of all cordinates within range sorted by furthest distance first.
+	Comments:
+	"""
+	
+	def getCordinatesWithinMaxDistance(robotCoordinate, maxLookAheadRange, path):
+		coordinatesWithinMaxDistanceDic = {}
+		for (coordinate in path):
+			distance = getDistance(robotCoordinate, coordinate)
+			if(distance <= maxLookAheadRange):
+				coordinatesWithinMaxDistanceDic[coordinate] = distance
+			else:
+				break
+		return coordinatesWithinMaxDistanceDic
 
 
 
