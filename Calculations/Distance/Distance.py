@@ -1,6 +1,14 @@
+
+
+from collections import namedtuple
+
+
+
+
 # coding=utf-8
 from math import sqrt, fabs, pow
 from collections import namedTuple
+
 
 class Distance:
 	"""
@@ -34,24 +42,9 @@ class Distance:
 			else:
 				break
 		return coordinatesWithinMaxDistanceDic
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
 """
 Function name:
 Purpose:
