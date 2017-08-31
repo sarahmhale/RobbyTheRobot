@@ -1,10 +1,7 @@
-
-from collections import namedTuple
-
-
-
 # coding=utf-8
 from math import sqrt, fabs, pow
+from collections import namedTuple
+
 class Distance:
 	"""
 	Function name: getDistance
@@ -27,7 +24,7 @@ class Distance:
 	Output: a list of all cordinates within range sorted by furthest distance first.
 	Comments:
 	"""
-	
+
 	def getCordinatesWithinMaxDistance(robotCoordinate, maxLookAheadRange, path):
 		coordinatesWithinMaxDistanceDic = {}
 		for (coordinate in path):
