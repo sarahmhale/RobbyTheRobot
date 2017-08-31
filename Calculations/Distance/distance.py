@@ -1,9 +1,27 @@
+from collections import namedTuple
+
+
+
+
+
 """
-Function name: getCordinatesWithinRange
+Function name: getCordinatesWithinMaxDistance
 Purpose:
 Input: path, rangeValue
 Output: a list of all cordinates within range sorted by furthest distance first.
 Comments:
+"""
+
+def getCordinatesWithinMaxDistance(robotCoordinate, goalCoordinate, maxDistanceFromPath):
+	coordinatesWithinMaxDistanceDic = {}
+	for (coordinate in path):
+		distance = getDistance(robotCoordinate, coordinate)
+		if(distance <= maxDistanceFromPath):
+			coordinatesWithinMaxDistanceDic[coordinate] = distance
+		else:
+			break
+	return coordinatesWithinMaxDistanceDic
+
 
 
 
@@ -19,7 +37,19 @@ while(inRange):
 		cordinatesWithinRange.sort(1)
 		
 return sortByLength(cordinatesWithinRange)
-"""
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """
 Function name: getDistance
