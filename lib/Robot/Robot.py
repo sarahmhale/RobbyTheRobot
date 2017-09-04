@@ -1,10 +1,24 @@
 from Calculations.Angle import Angle
 class Robot:
 
-    # currentPos
+    currentPosition = 0
+    destinationPosition = 0
 
-    def turnRobot(destinationPosition, currentPosition, currentDestinationPos):
+    def turnRobot(self,destinationPosition, currentPosition, currentDestinationPos):
         angle=Angle()
         currentBearing = angle.vector(currentDestinationPosition, currentPosition)
         destinationBearing = angle.vector(destinationPosition,currentPosition)
         turnAngle = angle.turnRobot(currentBearing, destinationBearing)
+        # TODO: Set wheel speed
+
+    def currentPosition(self,position):
+        self.currentPosition = position
+
+    def destinationPosition(self, position):
+        self.destinationPosition = position
+
+    def getCurrentPosition(self):
+        return self.currentPosition
+
+    def getDestinationPosition(self):
+        return self.destinationPosition = position
