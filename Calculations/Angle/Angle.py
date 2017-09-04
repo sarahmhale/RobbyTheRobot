@@ -1,5 +1,4 @@
 # coding=utf-8
-from math import sqrt, fabs, pow
 import numpy as np
 
 class Angle:
