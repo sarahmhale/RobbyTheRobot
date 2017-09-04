@@ -10,6 +10,12 @@ def createPosition(x, y):
     p = Position(x=x, y=y)
     return p
 
+"""
+Author: Erik Billing (billing@cs.umu.se)
+
+Updated by Ola Ringdahl 204-09-11
+Updated by Lennart Jern 20016-09-06 (converted to Python 3)
+"""
 def getPose():
     """Reads the current position and orientation from the MRDS"""
     mrds = http.client.HTTPConnection(MRDS_URL)
@@ -22,6 +28,12 @@ def getPose():
     else:
         return UnexpectedResponse(response)
     
+"""
+Author: Erik Billing (billing@cs.umu.se)
+
+Updated by Ola Ringdahl 204-09-11
+Updated by Lennart Jern 20016-09-06 (converted to Python 3)
+"""
 def postSpeed(angularSpeed,linearSpeed):
     """Sends a speed command to the MRDS server"""
     mrds = http.client.HTTPConnection(MRDS_URL)
