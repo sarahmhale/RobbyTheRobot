@@ -3,6 +3,7 @@ class Robot:
 
     currentPosition = 0
     destinationPosition = 0
+    path = 0
 
     def turnRobot(self,destinationPosition, currentPosition, currentDestinationPos):
         angle=Angle()
@@ -22,3 +23,6 @@ class Robot:
 
     def getDestinationPosition(self):
         return self.destinationPosition = position
+
+    def setPath(path):
+        self.path = path

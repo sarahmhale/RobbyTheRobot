@@ -9,4 +9,9 @@ def readPathFromJSONFile:
         for index in data:
             path.append(Position.createPosition(x=index['Pose']['Position']['X'],y=index['Pose']['Position']['Y']))
 
-        print(path)
+    return path
+
+# 
+# main:
+#
+#     Robot.setPath(readPathFromJSONFile)
