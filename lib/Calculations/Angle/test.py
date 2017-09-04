@@ -1,6 +1,6 @@
 import unittest
 
-from lib import *
+from '../../Position/Position' import Position
 from Angle import Angle
 
 class AngleTest(unittest.TestCase):
