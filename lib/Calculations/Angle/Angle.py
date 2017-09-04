@@ -2,6 +2,10 @@
 import numpy as np
 
 class Angle:
+
+    def vector(firstCoordiante, secondCoordinate):
+        return ([firstCoordinate.x - secondCoordinate.x,  firstCoordinate.y -secondCoordinate.y])
+
     def getAngle(self,currentVector, currentCoordinate, destinationCoordinate):
         v1 = [currentVector['x'], currentVector['y']]
         v2 = [destinationCoordinate['x'] - currentCoordinate['x'],  destinationCoordinate['y'] -currentCoordinate['y']]
@@ -14,12 +18,3 @@ class Angle:
             return angle - 360
         else:
             return angle
-
-
-"""
-Function name:
-Purpose:
-Input:
-Output:
-Comments:
-"""
