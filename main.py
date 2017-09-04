@@ -11,7 +11,17 @@ def readPathFromJSONFile:
 
     return path
 
-# 
-# main:
 #
-#     Robot.setPath(readPathFromJSONFile)
+# main:
+# Robot.setPath(readPathFromJSONFile)
+#
+#   while(!reachedGoal()):
+#       move()
+#       timeout( millisek)
+#
+#  def move():
+#
+#     postionList = pieceOfThePath(distanceToObstacle())
+#      turnRobot( postionList[0], Robot.getCurrentPosition(), Robot.getCurrentDestinationPosition())
+
+#
