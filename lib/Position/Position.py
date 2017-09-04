@@ -16,7 +16,7 @@ class Position:
     Updated by Ola Ringdahl 204-09-11
     Updated by Lennart Jern 20016-09-06 (converted to Python 3)
     """
-    def getPose():
+    def getPose(self):
         """Reads the current position and orientation from the MRDS"""
         mrds = http.client.HTTPConnection(MRDS_URL)
         mrds.request('GET','/lokarria/localization')
@@ -34,7 +34,7 @@ class Position:
     Updated by Ola Ringdahl 204-09-11
     Updated by Lennart Jern 20016-09-06 (converted to Python 3)
     """
-    def postSpeed(angularSpeed,linearSpeed):
+    def postSpeed(self,angularSpeed,linearSpeed):
         """Sends a speed command to the MRDS server"""
         mrds = http.client.HTTPConnection(MRDS_URL)
         params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed':linearSpeed})

@@ -8,7 +8,7 @@ class Robot:
         angle=Angle()
         currentBearing = angle.vector(currentDestinationPosition, currentPosition)
         destinationBearing = angle.vector(destinationPosition,currentPosition)
-        turnAngle = angle.turnRobot(currentBearing, destinationBearing)
+        turnAngle = angle.angleBetweenVectors(currentBearing, destinationBearing)
         # TODO: Set wheel speed
 
     def currentPosition(self,position):
