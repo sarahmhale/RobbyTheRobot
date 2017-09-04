@@ -1,7 +1,7 @@
 import unittest
 
-from '../../Position/Position' import Position
-from Angle import Angle
+from Position import Position
+from Calculations.Angle import Angle
 
 class AngleTest(unittest.TestCase):
     def test_shouldReturnVector(self):
