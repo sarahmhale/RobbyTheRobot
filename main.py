@@ -6,8 +6,10 @@ def readPathFromJSONFile:
     with open('Path-around-bench-and-sofa.json') as data_file:
         data = json.load(data_file)
         path = []
-        for index in data:
-            path.append(Position.createPosition(x=index['Pose']['Position']['X'],y=index['Pose']['Position']['Y']))
+        for row in data:
+            x = row['Pose']['Position']['X']
+            y = row['Pose']['Position']['Y']
+            path.append(Position.createPosition(x = x, y = y))
 
     return path
 
