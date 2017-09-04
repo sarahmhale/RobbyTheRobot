@@ -22,8 +22,6 @@ def readPathFromJSONFile:
 #       timeout( millisek)
 #
 #  def move():
-#
 #     postionList = pieceOfThePath(distanceToObstacle())
-#      turnRobot( postionList[0], Robot.getCurrentPosition(), Robot.getCurrentDestinationPosition())
-
+#     turnRobot( postionList[0], Position.getPose())
 #

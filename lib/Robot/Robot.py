@@ -5,9 +5,9 @@ class Robot:
     destinationPosition = 0
     path = 0
 
-    def turnRobot(self,destinationPosition, currentPosition, currentDestinationPos):
+    def turnRobot(self,destinationPosition, currentPosition):
         angle=Angle()
-        currentBearing = angle.vector(currentDestinationPosition, currentPosition)
+        currentBearing = angle.vector(self.destinationPosition, currentPosition)
         destinationBearing = angle.vector(destinationPosition,currentPosition)
         turnAngle = angle.angleBetweenVectors(currentBearing, destinationBearing)
         # TODO: Set wheel speed
