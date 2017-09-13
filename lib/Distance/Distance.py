@@ -1,6 +1,6 @@
 # coding=utf-8
 from math import sqrt, fabs, pow
-from collections import namedTuple
+
 
 class Distance:
 	"""
@@ -13,7 +13,7 @@ class Distance:
 	def getDistance(self,currentCoordinates, pathCoordinates):
 		if(currentCoordinates == None or pathCoordinates == None):
 			return None
-		return sqrt(pow(fabs(currentCoordinates[0]-pathCoordinates[0]), 2)+pow(fabs(currentCoordinates[1]-pathCoordinates[1]),2))
+		return sqrt(pow(fabs(currentCoordinates.x-pathCoordinates.x), 2)+pow(fabs(currentCoordinates.y-pathCoordinates.y),2))
 
 
 
@@ -25,15 +25,17 @@ class Distance:
 	Comments:
 	"""
 
-	def getCordinatesWithinMaxDistance(robotCoordinate, maxLookAheadRange, path):
-		coordinatesWithinMaxDistanceDic = {}
-		for (coordinate in path):
-			distance = getDistance(robotCoordinate, coordinate)
+	def getCordinatesWithinMaxDistance(self,robotCoordinate, maxLookAheadRange, path):
+		coordinatesWithinMaxDistance = []
+		for coordinate in path:
+			distance = self.getDistance(robotCoordinate, coordinate)
+			print(distance)
 			if(distance <= maxLookAheadRange):
-				coordinatesWithinMaxDistanceDic[coordinate] = distance
+				coordinatesWithinMaxDistance.insert(0,distance)
 			else:
 				break
-		return coordinatesWithinMaxDistanceDic
+		print(coordinatesWithinMaxDistance)
+		return coordinatesWithinMaxDistance
 
 
 
