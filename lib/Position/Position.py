@@ -5,7 +5,7 @@ from collections import namedtuple
 
 HEADERS = {"Content-type": "application/json", "Accept": "text/json"}
 class Position:
-    def createPosition(x, y):
+    def createPosition(self,x, y):
         Position = namedtuple('Position', ['x', 'y'])
         p = Position(x=x, y=y)
         return p
@@ -15,6 +15,7 @@ class Position:
 
     Updated by Ola Ringdahl 204-09-11
     Updated by Lennart Jern 20016-09-06 (converted to Python 3)
+    Updated by Sarah Hale 2017-09-13
     """
     def getPose(self):
         """Reads the current position and orientation from the MRDS"""
@@ -24,9 +25,11 @@ class Position:
         if (response.status == 200):
             poseData = response.read()
             response.close()
-
-            #TODO: should return a Postion object(?)
-            return json.loads(poseData.decode())
+            
+            pose = json.loads(poseData.decode())
+         
+            return self.createPosition(pose['Pose']['Position']['X'],
+                                       pose['Pose']['Position']['Y'])
         else:
             return UnexpectedResponse(response)
 

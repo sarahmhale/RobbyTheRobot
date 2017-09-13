@@ -1,12 +1,16 @@
-from Calculations.Angle import Angle
+from lib.Angle.Angle import Angle
+from lib.Position.Position import Position
 class Robot:
 
     currentPosition = 0
     destinationPosition = 0
     path = 0
 
-    def turnRobot(self,destinationPosition, currentPosition):
+    def turn(self,destinationPosition):
+        position = Position()
         angle=Angle()
+        currentPosition = Position.getPose()
+        print(currentPosition)
         currentBearing = angle.vector(self.destinationPosition, currentPosition)
         destinationBearing = angle.vector(destinationPosition,currentPosition)
         turnAngle = angle.angleBetweenVectors(currentBearing, destinationBearing)
@@ -22,7 +26,7 @@ class Robot:
         return self.currentPosition
 
     def getDestinationPosition(self):
-        return self.destinationPosition = position
+        return self.destinationPosition
 
     def setPath(path):
         self.path = path
