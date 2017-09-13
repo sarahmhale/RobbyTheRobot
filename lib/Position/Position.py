@@ -24,6 +24,8 @@ class Position:
         if (response.status == 200):
             poseData = response.read()
             response.close()
+
+            #TODO: should return a Postion object(?)
             return json.loads(poseData.decode())
         else:
             return UnexpectedResponse(response)
