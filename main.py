@@ -17,6 +17,7 @@ def readPathFromJSONFile():
 if __name__ == '__main__':
     robot = Robot()
     pose = Position()
+    robot.setDestinationPosition(pose.getPose())
     robot.turn(pose.getPose())
     time.sleep(3)
    

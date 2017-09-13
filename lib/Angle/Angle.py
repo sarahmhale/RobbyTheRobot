@@ -1,15 +1,16 @@
-# coding=utf-8
-import numpy as np
-
+import math
 class Angle:
-    def vector(firstCoordiante, secondCoordinate):
+    def vector(self,firstCoordinate, secondCoordinate):
         return ([firstCoordinate.x - secondCoordinate.x,  firstCoordinate.y -secondCoordinate.y])
 
     def angleBetweenVectors(self,v1, v2):
-        ang1 = np.arctan2(*v1[::-1])
-        ang2 = np.arctan2(*v2[::-1])
+        
+        v1_theta = math.atan2(v1[1], v1[0])
+        v2_theta = math.atan2(v2[1], v2[0])        
 
-        angle =np.rad2deg((ang1 - ang2) % (2 * np.pi))
+        angle = (v2_theta - v1_theta) * (180.0 / math.pi)
+        
+        print(angle)
 
         if angle > 180:
             return angle - 360

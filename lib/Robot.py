@@ -9,8 +9,7 @@ class Robot:
     def turn(self,destinationPosition):
         position = Position()
         angle=Angle()
-        currentPosition = Position.getPose()
-        print(currentPosition)
+        currentPosition = position.getPose()
         currentBearing = angle.vector(self.destinationPosition, currentPosition)
         destinationBearing = angle.vector(destinationPosition,currentPosition)
         turnAngle = angle.angleBetweenVectors(currentBearing, destinationBearing)
@@ -19,7 +18,7 @@ class Robot:
     def currentPosition(self,position):
         self.currentPosition = position
 
-    def destinationPosition(self, position):
+    def setDestinationPosition(self, position):
         self.destinationPosition = position
 
     def getCurrentPosition(self):
