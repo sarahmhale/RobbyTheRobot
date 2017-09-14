@@ -17,6 +17,17 @@ HEADERS = {"Content-type": "application/json", "Accept": "text/json"}
 
 class UnexpectedResponse(Exception): pass
 
+def readPathFromJSONFile():
+    with open('Path-around-bench-and-sofa.json') as data_file:
+        data = json.load(data_file)
+        path = []
+        for row in data:
+            x = row['Pose']['Position']['X']
+            y = row['Pose']['Position']['Y']
+            path.append(Position().createPosition(x = x, y = y))       
+    return path
+
+
 def postSpeed(angularSpeed,linearSpeed):
     """Sends a speed command to the MRDS server"""
     mrds = http.client.HTTPConnection(MRDS_URL)

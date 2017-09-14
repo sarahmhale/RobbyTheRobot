@@ -8,10 +8,7 @@ def readPathFromJSONFile():
         data = json.load(data_file)
         path = []
         for row in data:
-            x = row['Pose']['Position']['X']
-            y = row['Pose']['Position']['Y']
-            path.append(Position().createPosition(x = x, y = y))
-    print('path: ' , path)        
+            path.append(row)       
     return path
 
 
@@ -19,8 +16,13 @@ def readPathFromJSONFile():
 if __name__ == '__main__':
     robot = Robot()
     robot.setPath(readPathFromJSONFile())
-   
-    robot.turn()
+    
+    i = 0
+    while(i < 100):
+        print('start')
+        robot.turn()
+        time.sleep(0.1)
+        i = i+1
     
     
  

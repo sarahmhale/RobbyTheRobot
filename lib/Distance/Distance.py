@@ -13,7 +13,7 @@ class Distance:
 	def getDistance(self,currentCoordinates, pathCoordinates):
 		if(currentCoordinates == None or pathCoordinates == None):
 			return None
-		return sqrt(pow(fabs(currentCoordinates.x-pathCoordinates.x), 2)+pow(fabs(currentCoordinates.y-pathCoordinates.y),2))
+		return sqrt(pow(fabs(currentCoordinates['Pose']['Orientation']['X']-pathCoordinates['Pose']['Orientation']['X']), 2)+pow(fabs(currentCoordinates['Pose']['Orientation']['Y']-pathCoordinates['Pose']['Orientation']['Y']),2))
 
 
 
@@ -27,15 +27,16 @@ class Distance:
 
 	def getCordinatesWithinMaxDistance(self,robotCoordinate, maxLookAheadRange, path):
 		coordinatesWithinMaxDistance = []
+		print(path)
 		for coordinate in path:
 			distance = self.getDistance(robotCoordinate, coordinate)
-			print(distance)
 			if(distance <= maxLookAheadRange):
-				coordinatesWithinMaxDistance.insert(0,distance)
+				coordinatesWithinMaxDistance.insert(0,coordinate)
+				path.remove(coordinate)
 			else:
 				break
-		print(coordinatesWithinMaxDistance)
-		return coordinatesWithinMaxDistance
+		print('coordinates WIthin distance ',coordinatesWithinMaxDistance)
+		return coordinatesWithinMaxDistance, path
 
 
 

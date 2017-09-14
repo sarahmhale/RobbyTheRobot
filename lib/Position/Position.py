@@ -25,11 +25,7 @@ class Position:
         if (response.status == 200):
             poseData = response.read()
             response.close()
-            
-            pose = json.loads(poseData.decode())
-         
-            return self.createPosition(pose['Pose']['Position']['X'],
-                                       pose['Pose']['Position']['Y'])
+            return json.loads(poseData.decode())
         else:
             return UnexpectedResponse(response)
 
