@@ -35,23 +35,12 @@ class Angle:
         
     def getHeading(self,pose):
         """Returns the XY Orientation as a heading unit vector"""
-        return self.heading(pose['Pose']['Orientation'])   
+        vector = self.heading(pose['Pose']['Orientation'])
+        return math.atan2( vector['Y'], vector['X'])   
     
-    def angleBetweenVectors(self,v1, v2):
+    def getBearingTo(self,destinationPosition):
+        return math.atan2( destinationPosition['Y'],destinationPosition['X'])
         
-        print('v1',v1)
-        print('v2',v2)
+    def angleDifference(self,headingAngle, destinationAngel):
+        return destinationAngel - headingAngle
         
-        v1_theta = math.atan2(v1['Y'], v1['X'])
-        v2_theta = math.atan2(v2['Y'], v2['X'])    
-
-        angle = (v1_theta - v2_theta)
-        print(angle)
-        if angle < 0:
-            angle += 2*math.pi
-        
-            
-        if angle > math.pi:
-            return angle - 2*math.pi
-        else:
-            return angle

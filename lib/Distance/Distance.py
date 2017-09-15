@@ -3,6 +3,7 @@ from math import sqrt, fabs, pow
 
 
 class Distance:
+	counter = 0
 	"""
 	Function name: getDistance
 	Purpose: get distance between two coordinates
@@ -25,18 +26,18 @@ class Distance:
 	Comments:
 	"""
 
-	def getCordinatesWithinMaxDistance(self,robotCoordinate, maxLookAheadRange, path):
+	def getCordinatesWithinMaxDistance(self,index,robotCoordinate, maxLookAheadRange,path):
 		coordinatesWithinMaxDistance = []
-		print(path)
-		for coordinate in path:
-			distance = self.getDistance(robotCoordinate, coordinate)
+		print('counter',index)
+		while index < len(path):
+			distance = self.getDistance(robotCoordinate, path[index])
 			if(distance <= maxLookAheadRange):
-				coordinatesWithinMaxDistance.insert(0,coordinate)
-				path.remove(coordinate)
+				coordinatesWithinMaxDistance.insert(0, path[index])
+				index = index + 1
 			else:
 				break
-		print('coordinates WIthin distance ',coordinatesWithinMaxDistance)
-		return coordinatesWithinMaxDistance, path
+		print('path after ',path)
+		return coordinatesWithinMaxDistance, index
 
 
 

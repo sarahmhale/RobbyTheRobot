@@ -18,8 +18,7 @@ if __name__ == '__main__':
     robot.setPath(readPathFromJSONFile())
     
     i = 0
-    while(i < 100):
-        print('start')
+    while(1):
         robot.turn()
         time.sleep(0.1)
         i = i+1
