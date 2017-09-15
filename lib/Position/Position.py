@@ -5,11 +5,6 @@ from collections import namedtuple
 
 HEADERS = {"Content-type": "application/json", "Accept": "text/json"}
 class Position:
-    def createPosition(self,x, y):
-        Position = namedtuple('Position', ['x', 'y'])
-        p = Position(x=x, y=y)
-        return p
-
     """
     Author: Erik Billing (billing@cs.umu.se)
 

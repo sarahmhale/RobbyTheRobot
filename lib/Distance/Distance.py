@@ -12,9 +12,12 @@ class Distance:
 	Comments: används av getCordinatesWithinRange
 	"""
 	def getDistance(self,currentCoordinates, pathCoordinates):
+		
+		print('currentCoordinates  ',currentCoordinates)
+		print('pathCoordinates ',pathCoordinates)
 		if(currentCoordinates == None or pathCoordinates == None):
 			return None
-		return sqrt(pow(fabs(currentCoordinates['Pose']['Orientation']['X']-pathCoordinates['Pose']['Orientation']['X']), 2)+pow(fabs(currentCoordinates['Pose']['Orientation']['Y']-pathCoordinates['Pose']['Orientation']['Y']),2))
+		return sqrt(pow(currentCoordinates['Pose']['Position']['X']-pathCoordinates['Pose']['Position']['X'], 2)+pow(currentCoordinates['Pose']['Position']['Y']-pathCoordinates['Pose']['Position']['Y'],2))
 
 
 
@@ -31,6 +34,7 @@ class Distance:
 		print('counter',index)
 		while index < len(path):
 			distance = self.getDistance(robotCoordinate, path[index])
+			print('distance',distance)
 			if(distance <= maxLookAheadRange):
 				coordinatesWithinMaxDistance.insert(0, path[index])
 				index = index + 1

@@ -13,9 +13,10 @@ class Speed:
     Updated by Lennart Jern 20016-09-06 (converted to Python 3)
     """
     def postSpeed(self,angularSpeed):
+        print('angular speed', angularSpeed)
         """Sends a speed command to the MRDS server"""
         mrds = http.client.HTTPConnection(MRDS_URL)
-        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': 0.6})
+        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': 0.1})
         mrds.request('POST','/lokarria/differentialdrive',params,HEADERS)
         response = mrds.getresponse()
         status = response.status
@@ -26,9 +27,11 @@ class Speed:
             raise UnexpectedResponse(response)
         
     def wheelSpeed(self,angle, time):
+        print (angle)
+        # self.postSpeed(angle)
         if(angle > 0):
-            self.postSpeed(0.3)
+            self.postSpeed(0.6)
         else:
-            self.postSpeed(-0.3)
+            self.postSpeed(-0.6)
             
         
