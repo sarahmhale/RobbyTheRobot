@@ -11,8 +11,6 @@ class Robot:
     def turn(self):
         currentPosition = Position().getPose()
         destinationPosition, self.index = Distance().getCordinatesWithinMaxDistance(self.index,currentPosition, 1, self.path)
-
-
         if len(destinationPosition) != 0 :  
             turnAngle = self.calculateAngle(destinationPosition[0], currentPosition)
             self.destinationPosition = destinationPosition[0]

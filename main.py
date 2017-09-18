@@ -1,5 +1,6 @@
 import json, time
 from lib.Position.Position import Position
+from lib.Timer.Timer import Timer
 from lib.Robot import Robot
 
 
@@ -15,13 +16,14 @@ def readPathFromJSONFile():
 
 if __name__ == '__main__':
     robot = Robot()
+    timer = Timer()
     robot.setPath(readPathFromJSONFile())
     
-    i = 0
+    timer.startTimer()
     while not (robot.reachedGoal()):
         robot.turn()
         time.sleep(0.1)
     
-    print('GOAL')
+    timer.stopTimer()
     
  

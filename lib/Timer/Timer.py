@@ -9,12 +9,5 @@ class Timer:
 
     def stopTimer(self):
         self.stopTime = time.time()
-
-    def printTimer(self):
-        if(self.stopTime == 0):
-            print ('Time passed ', time.time()-self.startTime, ' secondes')
-        else:
-            print ('Time passed ', self.stopTime-self.startTime, ' secondes')
-
-    def getTime(self):
-        return self.stopTime-self.startTime
+        print ('Time passed ', self.stopTime-self.startTime, ' secondes')
+    
