@@ -6,17 +6,10 @@ import math
 
 HEADERS = {"Content-type": "application/json", "Accept": "text/json"}
 class Speed:
-    """
-    Author: Erik Billing (billing@cs.umu.se)
-
-    Updated by Ola Ringdahl 204-09-11
-    Updated by Lennart Jern 20016-09-06 (converted to Python 3)
-    """
     def postSpeed(self,angularSpeed):
-        print('angular speed', angularSpeed)
         """Sends a speed command to the MRDS server"""
         mrds = http.client.HTTPConnection(MRDS_URL)
-        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': 0.1})
+        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': 0.5})
         mrds.request('POST','/lokarria/differentialdrive',params,HEADERS)
         response = mrds.getresponse()
         status = response.status
@@ -26,12 +19,6 @@ class Speed:
         else:   
             raise UnexpectedResponse(response)
         
-    def wheelSpeed(self,angle, time):
-        print (angle)
-        # self.postSpeed(angle)
-        if(angle > 0):
-            self.postSpeed(0.6)
-        else:
-            self.postSpeed(-0.6)
-            
+
+    
         

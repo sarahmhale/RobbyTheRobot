@@ -18,10 +18,10 @@ if __name__ == '__main__':
     robot.setPath(readPathFromJSONFile())
     
     i = 0
-    while(1):
+    while not (robot.reachedGoal()):
         robot.turn()
         time.sleep(0.1)
-        i = i+1
     
+    print('GOAL')
     
  

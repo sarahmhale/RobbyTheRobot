@@ -38,9 +38,18 @@ class Angle:
         vector = self.heading(pose['Pose']['Orientation'])
         return math.atan2( vector['Y'], vector['X'])   
     
-    def getBearingTo(self,destinationPosition):
-        return math.atan2( destinationPosition['Y'],destinationPosition['X'])
+    def getBearingTo(self,destinationPosition,currentPosition):
+        return math.atan2( destinationPosition['Y'] - currentPosition['Y'],destinationPosition['X']- currentPosition['X'])
         
-    def angleDifference(self,headingAngle, destinationAngel):
-        return destinationAngel - headingAngle
+    def angleDifference(self,headingAngle, destinationAngle):
+        error = destinationAngle - headingAngle
+        if(error > math.pi):
+            return error - math.pi*2
+        elif(error < - math.pi):
+            return error+math.pi*2
+        elif(error == 0):
+            return 0
+        else:
+            return error
+    
         
