@@ -17,7 +17,7 @@ class Robot:
         else:  
             turnAngle = self.calculateAngle(self.destinationPosition, currentPosition)
 
-        Speed().postSpeed(turnAngle)
+        Speed().postSpeed(turnAngle, 0.7)
        
     def calculateAngle(self,destinationPosition, currentPosition):
         currentBearing = Angle().getHeading(currentPosition)
@@ -31,5 +31,9 @@ class Robot:
         self.goalIndex = len(path)
         
     def reachedGoal(self):
-        return self.index == self.goalIndex
+        if( self.index == self.goalIndex):
+            Speed().postSpeed(0, 0)            
+            return True
+        else:
+            return False
        

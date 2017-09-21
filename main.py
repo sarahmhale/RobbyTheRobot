@@ -5,7 +5,7 @@ from lib.Robot import Robot
 
 
 def readPathFromJSONFile():
-    with open('Path-around-table-and-back.json') as data_file:
+    with open('Path-to-bed.json') as data_file:
         data = json.load(data_file)
         path = []
         for row in data:
@@ -22,8 +22,7 @@ if __name__ == '__main__':
     timer.startTimer()
     while not (robot.reachedGoal()):
         robot.turn()
-        time.sleep(0.1)
-    
+
     timer.stopTimer()
     
  

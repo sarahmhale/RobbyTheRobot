@@ -6,10 +6,10 @@ import math
 
 HEADERS = {"Content-type": "application/json", "Accept": "text/json"}
 class Speed:
-    def postSpeed(self,angularSpeed):
+    def postSpeed(self,angularSpeed, linnearSpeed):
         """Sends a speed command to the MRDS server"""
         mrds = http.client.HTTPConnection(MRDS_URL)
-        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': 0.5})
+        params = json.dumps({'TargetAngularSpeed':angularSpeed,'TargetLinearSpeed': linnearSpeed})
         mrds.request('POST','/lokarria/differentialdrive',params,HEADERS)
         response = mrds.getresponse()
         status = response.status
