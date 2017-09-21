@@ -5,7 +5,7 @@ from lib.Robot import Robot
 
 
 def readPathFromJSONFile():
-    with open('Path-around-bench-and-sofa.json') as data_file:
+    with open('Path-around-table-and-back.json') as data_file:
         data = json.load(data_file)
         path = []
         for row in data:
